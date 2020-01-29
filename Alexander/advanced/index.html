@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 id="try2"></h1>
+	<h1 id="try1"></h1>
+	<script>
+		var term1 = "";
+		var term2 = 0;
+		var term1Display = "";
+		var term2Display = "";
+		var memory = undefined;
+		//adds symbols to string
+		function addToString(s) {
+			term1 += s;
+		}
+
+		addToString("1");
+		addToString("*");
+		addToString("2");
+		console.log(term1)
+		calculate();
+		//gets string and converts it to an expression
+		function calculate() {
+			term2 = eval(term1);
+			write();
+		}
+		function writeTerm1() {
+			term1Display = term1.replace("*", "&times;").replace("/", "&divide;");
+			document.getElementById("try1").innerHTML += term1Display;
+		}
+		function writeTerm2() {
+			term2Display = term2.toString();
+			document.getElementById("try2").innerHTML = term2Display;
+		}
+		var one = document.getElementById('1');
+		one.onclick = addToString('1');
+		one.onclick = writeTerm1("1");
+		var two = document.getElementById('2');
+		two.onclick = addToString('2');
+		var three = document.getElementById('3');
+		three.onclick = addToString('3');
+		var four = document.getElementById('4');
+		four.onclick = addToString('4');
+		var five = document.getElementById('5');
+		five.onclick = addToString('5');
+		var six = document.getElementById('6');
+		six.onclick = addToString('6');
+		var seven = document.getElementById('7');
+		seven.onclick = addToString('7');
+		var eight = document.getElementById('8');
+		eight.onclick = addToString('8');
+		var nine = document.getElementById('9');
+		nine.onclick = addToString('9');
+
+		var plus = document.getElementById('plus');
+		plus.onclick = addToString("+");
+		var minus = document.getElementById('minus');
+		minus.onclick = addToString("-");
+		var times = document.getElementById('times');
+		times.onclick = addToString("*");
+		var divide = document.getElementById('divide');
+		divide.onclick = addToString("/");
+		var percent = document.getElementById('percent');
+		percent.onclick = addToString("%");
+		var openBracket = document.getElementById('openBracket');
+		openBracket.onclick = addToString("(");
+		var closeBracket = document.getElementById('closeBracket');
+		closeBracket.onclick = addToString(")");
+		var changeSign = document.getElementById('changeSign');
+		// changeSign.onclick = 
+
+		var mc = document.getElementById('mc');
+		// mc.onclick = 
+		var ms = document.getElementById('ms');
+		// ms.onclick = 
+		var mr = document.getElementById('mr');
+		// mr.onclick = 
+		var mminus = document.getElementById('mminus');
+		// mminus.onclick = 
+		var mplus = document.getElementById('mplus');
+		// mplus.onclick = 
+
+		var equals = document.getElementById('equals');
+		// equals.onclick = 
+		var backspace = document.getElementById('backspace');
+		// backspace.onclick = 
+		var clear = document.getElementById('clear');
+		// clear.onclick = 
+
+		function changeSign() {
+			if (term2 > 0) {
+				term2 = -Math.abs(term2);
+			} else {
+				term2 = Math.abs(term2);
+			}
+		}
+		function equals() {
+			eval(expression);
+		}
+		function clear() {
+
+		}
+		function fitForDisplay() {
+			term1 = expression.replace("*", "&times;").replace("/", "&divide;");//&plusmn;
+			term2;
+		}
+	</script>
+</body>
+</html>
